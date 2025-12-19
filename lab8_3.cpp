@@ -1,50 +1,53 @@
 #include <iostream>
 #include <string>
-#include <iomanip>
 
 using namespace std;
 
-
-char findGrade(double score) {
-    if (score > 90) return 'A';
-    else if (score > 75) return 'B';
-    else if (score > 60) return 'C';
-    else if (score > 45) return 'D';
-    else return 'F';
-}
-
 int main() {
-    int num;
-    
-    cout << "Enter the number of students: ";
-    cin >> num;
-    cin.ignore(); 
+    int age;
+    int height;
+    long long bounty;
+    string character;
 
-    string name[num];
-    double score[num];
+    cout << "Enter your age: ";
+    cin >> age;
 
-    for (int i = 0; i < num; i++) {
-        
-        cout << "Name of student " << i + 1 << ": ";
-        getline(cin, name[i]);
+    if (age <= 25) {
+        cout << "Enter your height: ";
+        cin >> height;
 
-        
-        cout << "Score of student " << i + 1 << ": ";
-        cin >> score[i];
-        cin.ignore(); 
+        if (height < 100) {
+            character = "Chopper";
+        } else if (height < 180) {
+            character = "Usopp";
+        } else {
+            cout << "Enter your bounty: ";
+            cin >> bounty;
+            
+           
+            if (bounty > 1100000000) {
+                character = "Zoro";
+            } else {
+                character = "Sanji";
+            }
+        }
+    } else {
+        if (age <= 60) {
+            cout << "Enter your bounty: ";
+            cin >> bounty;
+
+            
+            if (bounty > 500000000) {
+                character = "Jinbe";
+            } else {
+                character = "Franky";
+            }
+        } else {
+            character = "Brook";
+        }
     }
 
-    cout << "---------------------------------------------" << endl;
-    cout << setw(25) << "Name" << setw(8) << "Score" << setw(8) << "Grade" << endl;
-    cout << "---------------------------------------------" << endl;
-
-    for (int i = 0; i < num; i++) {
-        
-        cout << setw(25) << name[i] 
-             << setw(8) << score[i] 
-             << setw(8) << findGrade(score[i]) << endl;
-    }
-    cout << "---------------------------------------------" << endl;
+    cout << "Your character = " << character << endl;
 
     return 0;
 }
